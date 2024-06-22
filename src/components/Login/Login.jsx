@@ -14,7 +14,8 @@ const Login = () => {
         event.preventDefault();
 
         try {
-            const response = await axios.post('/api/login', {
+            const baseUrl = process.env.NODE_ENV === 'production' ? 'https://myproject-server-ten.vercel.app' : '';
+            const response = await axios.post(`${baseUrl}/api/login`, {
                 email,
                 password
             });
