@@ -18,8 +18,9 @@ const Dashboard = () => {
         };
 
         try {
-            const response = axios.get("/api/dashboard", axiosConfig);
-            setData(response.data);
+            const baseUrl = process.env.NODE_ENV === 'production' ? 'https://myproject-server-ten.vercel.app' : '';
+            const response = axios.get(`${baseUrl}/api/dashboard`, axiosConfig);
+            setData(response.data.username);
         } catch (error) {
             toast.error(error.message);
         }

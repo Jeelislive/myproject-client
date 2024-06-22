@@ -14,7 +14,8 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('/api/register', {
+            const baseUrl = process.env.NODE_ENV === 'production' ? 'https://myproject-server-ten.vercel.app' : '';
+            const response = await axios.post(`${baseUrl}/api/register`, {
                 username,
                 email,
                 password
