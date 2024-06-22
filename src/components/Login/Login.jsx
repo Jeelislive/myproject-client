@@ -29,7 +29,7 @@ const Login = () => {
                 toast.error(err.message);
             }
         } catch (error) {
-            toast.error("Please fill all inputs");
+            toast.error("invalid creditional");
         }
     };
 

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Logout = () => {
 
@@ -9,13 +10,13 @@ const Logout = () => {
         localStorage.removeItem("auth");
         setTimeout(() => {
             navigate("/");
-        }, 3000);
+        }, 1000);
     }, []);
+
+    toast.success("Logout Successful!");
 
     return (
         <div className='logout-main'>
-            <h1>Logout Successful!</h1>
-            <p>You will be redirected to the landing page in 3 seconds...</p>
         </div>
     )
 }

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
@@ -9,27 +9,30 @@ const Dashboard = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-
-
-        let axiosConfig = {
-            headers: {
-                'Authorization': `Bearer ${ token }`
+        const fetchData = async () => {
+            if (!token) {
+                navigate("/login");
+                toast.warn("Please login first to access dashboard");
+                return;
             }
+
+            // const axiosConfig = {
+            //     headers: {
+            //         'Authorization': `Bearer ${ token }`
+            //     }
+            // };
+
+            // try {
+            //     const baseUrl = process.env.NODE_ENV === 'production' ? 'https://myproject-server-ten.vercel.app' : '';
+            //     const response = await axios.get(`${ baseUrl }/api/dashboard`, axiosConfig);
+            //     setData(response.data);
+            // } catch (error) {
+            //     toast.error(error.message);
+            // }
         };
 
-        try {
-            const baseUrl = process.env.NODE_ENV === 'production' ? 'https://myproject-server-ten.vercel.app' : '';
-            const response = axios.get(`${baseUrl}/api/dashboard`, axiosConfig);
-            setData(response.data);
-        } catch (error) {
-            toast.error(error.message);
-        }
-
-        if (token === "") {
-            navigate("/login");
-            toast.warn("Please login first to access dashboard");
-        }
-    }, [ token ]);
+        fetchData();
+    }, [ token, navigate ]);
 
     return (
         <div className="font-sans text-gray-900 antialiased">
@@ -41,18 +44,18 @@ const Dashboard = () => {
                 <div className="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
                     <div className="py-8">
                         <center>
-                            <span className="text-2xl font-semibold">Welcome, { "User" }!</span>
+                            <span className="text-2xl font-semibold">Hello, { "User" }! Welcome from Dashboard</span>
                         </center>
                     </div>
 
                     <div className="mt-4">
-                        <p className="block font-medium text-sm text-gray-700">Email: { }</p>
+                        <p className="block font-medium text-sm text-gray-700"></p>
+                        {/* Adjust this line to display the actual email from your data */ }
                     </div>
-                    {/* Add more content to your dashboard as needed */ }
                 </div>
             </div>
         </div>
     );
 };
 
-export default Dashboard
+export default Dashboard;

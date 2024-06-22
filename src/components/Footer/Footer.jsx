@@ -7,9 +7,12 @@ export default function Footer() {
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div className="md:flex md:justify-between">
                     <div className="mb-6 md:mb-0">
-                        <Link to="/" className="flex items-center ">
-                            <a href="https://ibb.co/5vvCDF1"><img src="https://i.ibb.co/tccnfXH/logo01.jpg" className="rounded-full	 height h-40 w-40"
-                                alt="Logo" border="0" /></a>
+                        <Link to="/" className="flex items-center">
+                            <img
+                                src="https://alexharkness.com/wp-content/uploads/2020/06/logo-2.png"
+                                className="mr-3 h-12"
+                                alt="Logo"
+                            />
                         </Link>
                     </div>
                     <div className="ml-30 grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
