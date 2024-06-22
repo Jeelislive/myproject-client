@@ -19,7 +19,7 @@ const Dashboard = () => {
 
         try {
             const response = axios.get("/api/dashboard", axiosConfig);
-            setData(response.data.username);
+            setData(response.data);
         } catch (error) {
             toast.error(error.message);
         }
@@ -45,7 +45,7 @@ const Dashboard = () => {
                     </div>
 
                     <div className="mt-4">
-                        <p className="block font-medium text-sm text-gray-700">Email: { data.email }</p>
+                        <p className="block font-medium text-sm text-gray-700">Email: { }</p>
                     </div>
                     {/* Add more content to your dashboard as needed */ }
                 </div>
