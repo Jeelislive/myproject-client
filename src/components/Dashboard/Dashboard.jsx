@@ -20,7 +20,7 @@ const Dashboard = () => {
         try {
             const baseUrl = process.env.NODE_ENV === 'production' ? 'https://myproject-server-ten.vercel.app' : '';
             const response = axios.get(`${baseUrl}/api/dashboard`, axiosConfig);
-            setData(response.data.username);
+            setData(response.data);
         } catch (error) {
             toast.error(error.message);
         }
